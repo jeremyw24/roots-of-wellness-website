@@ -2,21 +2,71 @@
 const services = [
   {
     step: '01',
-    name: 'Acupuncture',
-    description:
-      'Restore balance and harmony to your body through the ancient art of acupuncture. Using precise, gentle techniques, we target key points to alleviate pain, reduce stress, and support overall health. Whether youre addressing chronic issues or seeking relaxation, acupuncture helps unlock your body\'s natural healing potential.',
+    name: 'Musculoskeletal Conditions',
+    description: {
+      type: 'list',
+      items: [
+        'Neck, shoulder, and back pain',
+        'Sports injuries and recovery',
+        'Arthritis and joint pain',
+        'Sciatica and nerve pain',
+        'Muscle tension and stiffness'
+      ]
+    }
   },
   {
     step: '02',
-    name: 'Herbology',
-    description:
-      'Harness the power of nature with our customized herbal remedies. Rooted in traditional Chinese medicine, our herbal solutions are carefully crafted to support your unique needs. From boosting immunity to promoting energy and balance, herbology offers a natural path to wellness.',
+    name: 'Digestive Health',
+    description: {
+      type: 'list',
+      items: [
+        'Irritable bowel syndrome (IBS)',
+        'Constipation or diarrhea',
+        'Acid reflux and indigestion',
+        'Bloating and food sensitivities',
+        'Bowel and intestinal conditions'
+      ]
+    }
   },
   {
     step: '03',
-    name: 'Remedial Therapy',
-    description:
-      'Relieve tension, improve mobility, and promote healing with our hands-on manual therapy. Combining techniques like therapeutic massage, joint mobilization, and myofascial release, this personalized approach is designed to address discomfort, improve circulation, and restore your body\'s natural flow.',
+    name: 'Mental Health',
+    description: {
+      type: 'list',
+      items: [
+        'Stress and anxiety',
+        'Depression',
+        'Insomnia and sleep disturbances',
+        'Fatigue and burnout'
+      ]
+    }
+  },
+  {
+    step: '04',
+    name: 'Women’s Health',
+    description: {
+      type: 'list',
+      items: [
+        'Menstrual irregularities and pain',
+        'Hormonal imbalances (e.g., PCOS, endometriosis)',
+        'Pregnancy care and postpartum recovery'
+      ]
+    }
+  },
+  {
+    step: '05',
+    name: 'Other Conditions',
+    description: {
+      type: 'list',
+      items: [
+        'Headaches and migraines',
+        'Allergies and sinus issues',
+        'Skin conditions (e.g., eczema, acne)',
+        'Low immunity and frequent colds',
+        'Chronic fatigue syndrome',
+        'Thyroid conditions'
+      ]
+    }
   },
 ];
 ---
@@ -24,21 +74,36 @@ const services = [
 <section class="py-16 sm:py-20">
   <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
     <div class="flex flex-col gap-12 sm:gap-16">
-      <h2 class="text-3xl font-medium tracking-tight sm:text-4xl">Services</h2>
+      <h2 class="text-3xl font-medium tracking-tight sm:text-4xl">Common Conditions seen in the clinic</h2>
       <div class="grid gap-8 lg:grid-cols-3">
         {
           services.map((service) => (
             <div class="bg-primary-500/10 dark:bg-primary-400/10 flex flex-col gap-12 rounded-3xl px-6 py-8">
-              <!-- <p class="text-sm">{service.step}</p> -->
               <div class="flex flex-col gap-4">
                 <h3 class="text-xl font-medium">{service.name}</h3>
-                <p class="text-primary-950/70 dark:text-primary-200/70 text-base sm:text-lg">
-                  {service.description}
-                </p>
+                {service.description.type === 'list' ? (
+                  <ul class="text-primary-950/70 dark:text-primary-200/70 text-base sm:text-lg space-y-2 list-disc pl-5">
+                    {service.description.items.map((item) => (
+                      <li>{item}</li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p class="text-primary-950/70 dark:text-primary-200/70 text-base sm:text-lg">
+                    {service.description}
+                  </p>
+                )}
               </div>
             </div>
           ))
         }
+        {/* Logo Card */}
+        <div class="bg-primary-500/10 dark:bg-primary-400/10 flex flex-col items-center justify-center rounded-3xl px-6 py-8">
+          <img
+            src="/assets/logo.png"
+            alt="Clinic Logo"
+            class="max-w-[300px] h-auto"
+          />
+        </div>
       </div>
     </div>
   </div>
