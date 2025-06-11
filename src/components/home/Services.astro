@@ -55,6 +55,20 @@ const services = [
   },
   {
     step: '05',
+    name: 'Facial Conditions',
+    description: {
+      type: 'list',
+      items: [
+        'Cosmetic acupuncture',
+        'Teeth grinding and jaw tension',
+        'Facial muscle weakness or tightness',
+        'Facial numbness or nerve related concerns',
+        'Eyes, Ears, Nose and Throat (EENT) issues'
+      ]
+    }
+  },
+  {
+    step: '06',
     name: 'Other Conditions',
     description: {
       type: 'list',
@@ -97,13 +111,13 @@ const services = [
           ))
         }
         {/* Logo Card */}
-        <div class="bg-primary-500/10 dark:bg-primary-400/10 flex flex-col items-center justify-center rounded-3xl px-6 py-8">
+        <!-- <div class="bg-primary-500/10 dark:bg-primary-400/10 flex flex-col items-center justify-center rounded-3xl px-6 py-8">
           <img
             src="/assets/logo.png"
             alt="Clinic Logo"
             class="max-w-[300px] h-auto"
           />
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
