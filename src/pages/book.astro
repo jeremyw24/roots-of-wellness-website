@@ -3,6 +3,7 @@ import Cta from '../components/book/Cta.astro';
 import Faq from '../components/book/Faq.astro';
 import Heading from '../components/book/Heading.astro';
 import PricingTable from '../components/book/PricingTable.astro';
+import Waitlist from '../components/book/Waitlist.astro';
 import Layout from '../layouts/Layout.astro';
 ---
 
@@ -24,6 +25,7 @@ import Layout from '../layouts/Layout.astro';
       e.data.search('cliniko-bookings-page') > -1 && clinikoBookings.scrollIntoView();
     });
   </script>
+  <Waitlist />
   <!-- <Faq /> -->
   <!-- <Cta /> -->
 </Layout>
